@@ -16,12 +16,6 @@ import { runBeat, nextBeat, replayBeat } from './beats.js';
 import { resetCamera, resetGizmo } from './interaction.js';
 import { setFreePlayMode } from './ui.js';
 
-/* route the Home button back to the test lab when arriving from it */
-if (new URLSearchParams(window.location.search).get('from') === 'test') {
-    const homeButton = document.querySelector('.home-btn');
-    if (homeButton) homeButton.href = '../test-labs.html';
-}
-
 /* wire up controls (no inline onclick handlers) */
 document.getElementById('btn-replay').addEventListener('click', replayBeat);
 document.getElementById('btn-reset-view').addEventListener('click', resetCamera);

@@ -21,6 +21,12 @@
       --accent-yellow: #ffda22;
       --accent-green: #00aa00;
       --header-bg: #171e35;
+
+      /* fluid chrome scale, matched to the lab so the corner controls line up
+         at the same inset and size across both pages */
+      --edge: clamp(12px, 2.5vmin, 28px);
+      --logo-h: clamp(22px, 3.4vmin, 34px);
+      --fs-ui: clamp(12px, 1.45vmin, 14.5px);
     }
 
     * {
@@ -33,16 +39,60 @@
       font-family: 'Montserrat', sans-serif;
       background-color: var(--bg);
       color: var(--text-main);
-      padding: 4rem 2rem;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
+    /* corner chrome - same inset, sizing and hover feel as the lab's .home-btn
+       and .logo-top-right, so moving between the two pages feels continuous */
+    .back-btn {
+      position: fixed;
+      top: var(--edge);
+      left: var(--edge);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(23, 30, 53, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Lexend', sans-serif;
+      font-size: var(--fs-ui);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(23, 30, 53, 0.95);
+      border-color: var(--accent-orange);
+      color: var(--accent-orange);
+      transform: translateX(-4px);
+    }
+
+    .logo-top-right {
+      position: fixed;
+      top: var(--edge);
+      right: var(--edge);
+      z-index: 1000;
+      height: var(--logo-h);
+      width: auto;
+      object-fit: contain;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
     .container {
       max-width: 1200px;
       width: 100%;
+      /* clear the fixed corner chrome before the title starts */
+      padding: calc(var(--edge) + 4rem) 2rem 4rem;
     }
 
     .page-title {
@@ -146,8 +196,8 @@
     }
 
     @media (max-width: 600px) {
-      body {
-        padding: 2.5rem 1rem;
+      .container {
+        padding: calc(var(--edge) + 3.5rem) 1rem 2.5rem;
       }
 
       .page-title {
@@ -158,6 +208,16 @@
 </head>
 
 <body>
+
+  <a href="https://createaccess.org/microcourses-hub" target="_top" class="back-btn">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 18-6-6 6-6" />
+    </svg>
+    <span>Back</span>
+  </a>
+
+  <img src="assets/Logo.png" alt="CreateAccess Logo" class="logo-top-right">
 
   <div class="container">
     <h1 class="page-title">Interactive Labs</h1>
