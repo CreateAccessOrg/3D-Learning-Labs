@@ -31,7 +31,7 @@ npx serve .
 ## Deploy
 
 Published with GitHub Pages at
-https://createaccessorg.github.io/Navigate-and-Transform-Lab/ — the landing page
+https://createaccessorg.github.io/Navigate-and-Transform-Lab/. The landing page
 is served from the root, and the lab from
 `/Navigate-and-Transform-Lab/labs/navigate-and-transform/`.
 
