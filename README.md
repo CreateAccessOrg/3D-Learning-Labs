@@ -8,7 +8,13 @@ index.html                      landing page (markup + inline CSS)
 assets/                         landing page images
 labs/
   navigate-and-transform/       Navigate + Transform lab
+  materials/                    Materials lab (color, roughness, metalness)
 ```
+
+Labs share a narrative shape: a docked caption panel drives numbered steps, each
+one running a "Watch" demo and then waiting for the student to do the same thing
+themselves before Continue unlocks. Controls are revealed as the step that
+teaches them arrives, never before.
 
 ## Run it
 

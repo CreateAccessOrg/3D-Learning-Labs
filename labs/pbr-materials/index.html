@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Material Lab | CreateAccess</title>
+    <meta name="description"
+        content="Build a material from three settings (color, roughness and metal), then play a match-the-material game." />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <div class="lab">
+
+        <!-- ── stage ── -->
+        <section class="stage" id="stage">
+            <canvas id="cv"></canvas>
+
+            <a class="back" href="../../">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6" />
+                </svg>
+                <span>Labs</span>
+            </a>
+            <img class="stage-logo" src="assets/Logo.png" alt="CreateAccess">
+
+            <div class="ball-label" id="label-mystery">Mystery</div>
+            <div class="ball-label you" id="label-you">Yours</div>
+
+            <div class="hud" id="hud">plastic</div>
+            <div class="stage-hint">drag to spin</div>
+        </section>
+
+        <!-- ── panel ── -->
+        <aside class="panel" id="panel">
+            <div class="dots" id="dots"></div>
+
+            <div class="panel-body">
+                <p class="kicker" id="kicker"></p>
+                <h1 class="title" id="title"></h1>
+                <p class="text" id="text"></p>
+
+                <div class="groups">
+
+                    <div class="group" data-group="color">
+                        <div class="rgb">
+                            <div class="rgb-chip"><span data-rgb-chip></span><span class="rgb-hex"
+                                    data-rgb-hex>#FF9022</span></div>
+                            <div class="rgb-rows">
+                                <div class="rgb-row" data-ch="r"><label>R</label><input type="range" data-rgb="r" min="0"
+                                        max="255" value="255"><output>255</output></div>
+                                <div class="rgb-row" data-ch="g"><label>G</label><input type="range" data-rgb="g" min="0"
+                                        max="255" value="144"><output>144</output></div>
+                                <div class="rgb-row" data-ch="b"><label>B</label><input type="range" data-rgb="b" min="0"
+                                        max="255" value="34"><output>34</output></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group" data-group="roughness">
+                        <div class="slider">
+                            <div class="slider-head"><label>Roughness</label><output>0.30</output></div>
+                            <input type="range" data-name="roughness" data-format="unit" min="0" max="100" value="30">
+                            <div class="slider-ends"><span>mirror</span><span>chalky</span></div>
+                        </div>
+                    </div>
+
+                    <div class="group" data-group="metal">
+                        <div class="segbox">
+                            <span class="seg-label">Metal?</span>
+                            <div class="seg seg-metal">
+                                <button data-value="0" type="button">No</button>
+                                <button data-value="1" type="button">Yes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group" data-group="light">
+                        <div class="slider">
+                            <div class="slider-head"><label>Light</label><output>38°</output></div>
+                            <input type="range" data-name="light" data-format="deg" min="-160" max="160" value="38">
+                            <div class="slider-ends"><span>left</span><span>right</span></div>
+                        </div>
+                    </div>
+
+                    <div class="group" data-group="presets">
+                        <div class="swatch-field">
+                            <span>Recipes</span>
+                            <div class="presets">
+                                <button class="preset" data-value="plastic"><i
+                                        style="background:#ff9022"></i>Plastic</button>
+                                <button class="preset" data-value="rubber"><i
+                                        style="background:#22252b"></i>Rubber</button>
+                                <button class="preset" data-value="paint"><i style="background:#c0453a"></i>Wet
+                                    paint</button>
+                                <button class="preset" data-value="gold"><i
+                                        style="background:#ffdb93"></i>Gold</button>
+                                <button class="preset" data-value="copper"><i
+                                        style="background:#fad1c2"></i>Copper</button>
+                                <button class="preset" data-value="iron"><i
+                                        style="background:#c5c7c8"></i>Iron</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group" data-group="match">
+                        <div class="match-controls">
+                            <button id="btn-check" class="dock-btn primary" type="button">Check</button>
+                            <button id="btn-new" class="dock-btn" type="button">New ball</button>
+                        </div>
+                        <div id="result">
+                            <div class="score-row">
+                                <div class="score-num"><span id="score-num">0</span><span class="pct">%</span></div>
+                                <div class="bars">
+                                    <div class="bar" data-prop="color"><span>Color</span>
+                                        <div class="track"><i></i></div>
+                                    </div>
+                                    <div class="bar" data-prop="roughness"><span>Roughness</span>
+                                        <div class="track"><i></i></div>
+                                    </div>
+                                    <div class="bar" data-prop="metal"><span>Metal</span>
+                                        <div class="track"><i></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p id="score-tip"></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="panel-foot">
+                <button id="btn-back" class="foot-btn" type="button">Back</button>
+                <button id="btn-next" class="foot-btn primary" type="button">Next</button>
+                <a id="btn-finish" class="foot-btn primary" href="../../" style="display:none">Back to labs</a>
+            </div>
+        </aside>
+    </div>
+
+    <script type="importmap">{"imports":{
+  "three":          "https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js",
+  "three/addons/":  "https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/"
+}}</script>
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
