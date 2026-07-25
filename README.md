@@ -1,14 +1,19 @@
 # Interactive Labs
 
-Monorepo for the CreateAccess 3D learning modules. The repo root is the landing
-page; each module lives in its own folder under `labs/`.
+A growing collection of free, hands-on 3D learning modules from CreateAccess.
+Each lab teaches one skill through a guided, interactive walkthrough in the
+browser — watch a demo, then try it yourself. No installs, no accounts.
+
+This is the monorepo behind them: the repo root is the landing page that links
+out to every lab, and each module lives in its own folder under `labs/`.
 
 ```
 index.html                      landing page (markup + inline CSS)
 assets/                         landing page images
-labs/
-  navigate-and-transform/       Navigate + Transform lab
+labs/                           interactive labs
 ```
+
+Labs are meant to teach creators 3D concepts in a fun, interactive way.
 
 ## Run it
 
@@ -28,11 +33,18 @@ npx serve .
 3. Copy a `.card` block in the root `index.html` and point `href` at
    `labs/<module-name>/`.
 
-## Deploy
+## Contributing a module or idea
 
-Published with GitHub Pages at
-https://createaccessorg.github.io/Navigate-and-Transform-Lab/. The landing page
-is served from the root, and the lab from
-`/Navigate-and-Transform-Lab/labs/navigate-and-transform/`.
+These labs grow from what people want to teach and learn. There are three ways
+to get involved, from most to least hands-on:
 
-`.nojekyll` keeps Pages from running Jekyll over the files.
+- **Build a module (Pull Request).** Follow *Adding a module* above, then open a
+  PR against `main`. Include a short note on what the module teaches and a
+  screenshot so it's easy to review.
+- **Propose a module (Issue).** Not ready to build it? Open an Issue describing
+  the concept, including the skill or idea it teaches, the interaction you imagine, and
+  who it's for. A rough sketch is plenty; we'll shape it together.
+- **Suggest an improvement (Issue).** Spotted something confusing, broken, or
+  worth adding to an existing lab? Open an Issue and tell us what you'd change.
+
+No idea is too small, and you don't need to know the codebase to suggest one!
