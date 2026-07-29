@@ -2,7 +2,7 @@
    INTERACTION - RAYCASTING + DRAG
    Priority: gizmo arrow > scale handle > orbit.
    Also hosts the wheel/keyboard handlers, the draggable
-   panel, and the Reset View / Reset Gizmo actions.
+   panel, and the Reset View / Reset Gizmo-Bot actions.
 ═══════════════════════════════════════════════ */
 import * as THREE from 'three';
 import { clamp, lerp } from './utils.js';
@@ -419,7 +419,7 @@ window.addEventListener('keydown', e => {
 });
 
 /* ═══════════════════════════════════════════════
-   UTILITY ACTIONS - Reset View / Reset Gizmo
+   UTILITY ACTIONS - Reset View / Reset Gizmo-Bot
 ═══════════════════════════════════════════════ */
 export function resetCamera() {
     if (state.beatLocked) return;
@@ -444,7 +444,7 @@ export function resetCamera() {
     });
 }
 
-export function resetGizmo() {
+export function resetGizmoBot() {
     if (state.beatLocked || !state.character) return;
 
     const startP = state.character.position.clone();

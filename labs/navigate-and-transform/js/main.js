@@ -13,13 +13,13 @@ import {
 } from './gizmos.js';
 import { state } from './state.js';
 import { runBeat, nextBeat, replayBeat } from './beats.js';
-import { resetCamera, resetGizmo } from './interaction.js';
+import { resetCamera, resetGizmoBot } from './interaction.js';
 import { setFreePlayMode } from './ui.js';
 
 /* wire up controls (no inline onclick handlers) */
 document.getElementById('btn-replay').addEventListener('click', replayBeat);
 document.getElementById('btn-reset-view').addEventListener('click', resetCamera);
-document.getElementById('btn-reset-gizmo').addEventListener('click', resetGizmo);
+document.getElementById('btn-reset-gizmo-bot').addEventListener('click', resetGizmoBot);
 document.getElementById('btn-continue').addEventListener('click', nextBeat);
 document.querySelectorAll('.fp-btn').forEach(btn => {
     btn.addEventListener('click', () => setFreePlayMode(btn.dataset.mode));

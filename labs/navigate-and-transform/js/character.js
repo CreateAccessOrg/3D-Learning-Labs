@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════
    CHARACTER (GLB)
-   Loaded from gizmo.glb. Centered on origin, sitting on floor.
+   Loaded from gizmo-bot.glb. Centered on origin, sitting on floor.
 ═══════════════════════════════════════════════ */
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { V3 } from './utils.js';
-import { GIZMO_URL } from './config.js';
+import { GIZMO_BOT_URL } from './config.js';
 import { scene } from './stage.js';
 import { state } from './state.js';
 
@@ -26,7 +26,7 @@ export function getCharacterControlScale() {
 /* Load the model and call onReady() once it is in the scene. */
 export function loadCharacter(onReady) {
     const loader = new GLTFLoader();
-    loader.load(GIZMO_URL, (gltf) => {
+    loader.load(GIZMO_BOT_URL, (gltf) => {
         const model = gltf.scene;
 
         // correct material styling and enable shadows

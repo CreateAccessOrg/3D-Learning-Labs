@@ -103,7 +103,7 @@ export function setProgress(idx) {
 
 export function dockPanel() { /* panel is fixed-docked - nothing to do */ }
 
-/* Briefly animate the Reset View / Reset Gizmo buttons to draw attention when a
+/* Briefly animate the Reset View / Reset Gizmo-Bot buttons to draw attention when a
    beat calls them out. Auto-clears so it can be retriggered later. */
 export function pulseUtilBar() {
     const util = document.getElementById('util-bar');

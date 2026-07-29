@@ -262,7 +262,7 @@ body {
 
 /* ── info panel ── */
 #panel {
-    /* Permanently docked to the bottom-left corner so it never covers Gizmo
+    /* Permanently docked to the bottom-left corner so it never covers Gizmo-Bot
        (a centered panel buried the model on shorter screens) and can't be
        dragged out of place. */
     position: absolute;
