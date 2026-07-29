@@ -520,7 +520,7 @@ export function runBeat(idx) {
             setMode('interact');
             setCaption('',
                 'You can navigate 3D space!',
-                'Orbit, Zoom, Pan · Move · Scale · Rotate: these are the core tools you will need to begin exploring 3D technology. You have the foundation. Now use your skills to move Gizmobot any way you wish, and continue your 3D creation journey on the Microcourses Hub!',
+                'Orbit · Zoom · Pan · Move · Scale · Rotate: these are the core tools you will need to begin exploring 3D technology. You have the foundation. Now use your skills to move Gizmobot any way you wish, and continue your 3D creation journey on the Microcourses Hub!',
             );
             document.getElementById('panel').classList.add('panel-celebrate');
             document.getElementById('free-play-widget').style.display = 'flex';
