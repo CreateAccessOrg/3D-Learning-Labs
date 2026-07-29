@@ -444,7 +444,7 @@ export function resetCamera() {
     });
 }
 
-export function resetGizmoBot() {
+export function resetGizmobot() {
     if (state.beatLocked || !state.character) return;
 
     const startP = state.character.position.clone();
