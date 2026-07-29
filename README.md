@@ -2,7 +2,7 @@
 
 A growing collection of free, hands-on 3D learning modules from CreateAccess.
 Each lab teaches one skill through a guided, interactive walkthrough in the
-browser — watch a demo, then try it yourself. No installs, no accounts.
+browser: watch a demo, then try it yourself. No installs, no accounts.
 
 This is the monorepo behind them: the repo root is the landing page that links
 out to every lab, and each module lives in its own folder under `labs/`.
