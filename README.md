@@ -33,18 +33,11 @@ npx serve .
 3. Copy a `.card` block in the root `index.html` and point `href` at
    `labs/<module-name>/`.
 
-## Contributing a module or idea
+## Contributing
 
-These labs grow from what people want to teach and learn. There are three ways
-to get involved, from most to least hands-on:
+Want to build a module, propose an idea, or suggest an improvement? See
+[CONTRIBUTING.md](CONTRIBUTING.md) for how to get involved.
 
-- **Build a module (Pull Request).** Follow *Adding a module* above, then open a
-  PR against `main`. Include a short note on what the module teaches and a
-  screenshot so it's easy to review.
-- **Propose a module (Issue).** Not ready to build it? Open an Issue describing
-  the concept, including the skill or idea it teaches, the interaction you imagine, and
-  who it's for. A rough sketch is plenty; we'll shape it together.
-- **Suggest an improvement (Issue).** Spotted something confusing, broken, or
-  worth adding to an existing lab? Open an Issue and tell us what you'd change.
+## License
 
-No idea is too small, and you don't need to know the codebase to suggest one!
+Licensed under the [Apache License, Version 2.0](LICENSE.md).
