@@ -1,0 +1,76 @@
+/* Like Material Lab, the editor's status line is noise during the lesson. */
+body.assembly-lesson .statusbar { display: none; }
+
+body.assembly-lesson .scene-panel { max-height: 48%; flex-basis: 48%; }
+body.assembly-lesson #editor-dock:has(.inspector-panel[hidden]) .scene-panel { max-height: none; flex: 1 1 auto; }
+body.assembly-lesson .scene-row[data-current-target="true"] {
+  border-color: #f3aa5e;
+  background: #fff8ef;
+}
+
+.assembly-target-label {
+  position: absolute;
+  z-index: 5;
+  transform: translate(-50%, 18px);
+  padding: 5px 8px;
+  border: 1px solid #efa65e;
+  border-radius: 6px;
+  background: #fff8ed;
+  color: #90440b;
+  font: 500 9px/1.2 var(--mono);
+  letter-spacing: .09em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Card density and the quiet "Show me where" link match Material Lab. */
+body.assembly-lesson .lesson-guidance-card,
+body.assembly-lesson .lesson-guidance:not(.is-spotlighting) .lesson-guidance-card { width: min(420px, calc(100vw - 48px)); padding: 22px 24px; }
+body.assembly-lesson .lesson-guidance-copy h2 { font-size: 23px; }
+body.assembly-lesson .lesson-guidance-copy > p { line-height: 1.5; }
+body.assembly-lesson .lesson-guidance-actions button { font-size: 13px; padding: 8px 12px; }
+body.assembly-lesson .lesson-guidance-secondary { margin-right: auto; padding-inline: 6px; border-color: transparent; background: transparent; color: #45485a; text-decoration: underline; text-underline-offset: 3px; }
+body.assembly-lesson .lesson-guidance-secondary:hover:not(:disabled) { background: #f4f4f1; border-color: transparent; }
+@media (min-width: 651px) {
+  /* One steady card size from step to step; actions sit at the bottom. */
+  body.assembly-lesson .lesson-guidance.has-fixed-home .lesson-guidance-card { min-height: 230px; display: flex; flex-direction: column; }
+  body.assembly-lesson .lesson-guidance-copy { flex-shrink: 0; }
+  body.assembly-lesson .lesson-guidance.has-fixed-home .lesson-guidance-actions { margin-top: auto; padding-top: 12px; }
+}
+body.assembly-lesson .viewport-utilities { margin-left: auto; }
+body.assembly-lesson .tool-divider { display: none; }
+
+@media (max-width: 900px) {
+  body.assembly-lesson .scene-panel { max-height: 46%; flex-basis: 46%; }
+}
+
+@media (max-width: 650px) {
+  body.assembly-lesson .lesson-guidance-card,
+  body.assembly-lesson .lesson-guidance:not(.is-spotlighting) .lesson-guidance-card { width: min(420px, calc(100vw - 36px)); padding: 17px 18px 15px; }
+}
+
+body.assembly-lesson .lesson-guidance-actions { flex-wrap: wrap; }
+body.assembly-lesson .lesson-feedback { display: none; }
+
+@media (max-width: 650px) {
+  /* Keep the model in view while working in the open Scene/Inspector dock. */
+  body.assembly-lesson #creator-app.lesson-mode:has(#editor-dock:not([hidden])) .viewport {
+    flex: 0 0 clamp(150px, 24dvh, 205px);
+    min-height: 150px;
+  }
+  body.assembly-lesson #creator-app.lesson-mode:has(#editor-dock:not([hidden])) #editor-dock {
+    top: calc(24dvh + 20px); left: 8px; right: 8px; width: auto;
+    overflow-y: auto; display: block;
+  }
+  body.assembly-lesson #editor-dock .dock-header { padding: 7px 12px; }
+  body.assembly-lesson #editor-dock .scene-panel { max-height: 140px; }
+  body.assembly-lesson #editor-dock .inspector-panel,
+  body.assembly-lesson #editor-dock .inspector-host { overflow: visible; }
+  body.assembly-lesson #dock-backdrop { display: none; }
+}
+
+@media (max-width: 650px) {
+  body.assembly-lesson #creator-app.lesson-mode:has(#editor-dock:not([hidden])) .workspace { flex-direction: column; }
+  body.assembly-lesson #creator-app.lesson-mode:has(#editor-dock:not([hidden])) #tool-rail { top: 48px; }
+  body.assembly-lesson #creator-app.lesson-mode:has(#editor-dock:not([hidden])) #tool-rail button { min-height: 34px; padding: 3px 7px; }
+}
